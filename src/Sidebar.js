@@ -1,20 +1,15 @@
 import React from 'react';
 import SavedToolsContainer from './SavedToolsContainer'
 
-class Sidebar extends React.Component{
+function Sidebar (props){
 
-
-    render() {
         return(
-            <div className="ui right sidebar inverted vertical menu">
-                <SavedToolsContainer /> 
-        
+            <div className="ui right sidebar visible ">
+                <SavedToolsContainer savedTools={props.savedTools} handleSave={props.handleSave}/> 
             </div>
 
         )
     
-    }
-
-
 }
+
 export default Sidebar;

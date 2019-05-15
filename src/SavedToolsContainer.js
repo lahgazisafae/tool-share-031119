@@ -1,14 +1,9 @@
 import React from 'react';
 import ToolCard from './ToolCard'
 
-class SavedToolsContainer extends React.Component{
-
-
-    render() {
-        return null 
-
-    }
-
+function SavedToolsContainer (props){
+    
+        return props.savedTools.map(tool=> <ToolCard toolCard={tool} handleSave={props.handleSave}/>)
 
 }
 export default SavedToolsContainer;

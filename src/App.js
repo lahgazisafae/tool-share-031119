@@ -48,10 +48,33 @@ class App extends React.Component{
             "image": "https://images-na.ssl-images-amazon.com/images/I/91RRLv1XF9L._SX679_.jpg",
             "contact": "fifi@gmail.com",
             saved: false
-        },
+        }
       ],
-      color:'red'
+      searchTerm: ""
     }
+  }
+
+  getSearchTools(){
+
+    return this.state.tools.filter(tool=> {
+
+     if( tool.tool.toLowerCase().includes(this.state.searchTerm.toLowerCase()) && !tool.saved)
+      return true
+    })
+
+  }
+
+  getSavedTools(){
+    return this.state.tools.filter(tool=> (tool.saved))
+
+  }
+
+  handleSearch= (e)=>{
+
+    this.setState({
+      searchTerm: e.target.value
+    }, ()=>console.log("was state changed?",this.state.searchTerm))
+    
   }
 
   handleSave =(id)=>{
@@ -82,9 +105,9 @@ class App extends React.Component{
   render(){
   return (
     <div >
-      <Search /> 
-      <ToolsContainer tools={this.state.tools} handleSave={this.handleSave}/> 
-      <Sidebar /> 
+      <Search handleSearch={this.handleSearch}/> 
+      <ToolsContainer tools={this.getSearchTools()} handleSave={this.handleSave}/> 
+      <Sidebar savedTools={this.getSavedTools()} handleSave={this.handleSave}/> 
 
     </div>
   );

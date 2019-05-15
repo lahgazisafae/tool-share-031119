@@ -1,17 +1,16 @@
 import React from 'react';
 
-class Search extends React.Component{
+function Search(props){
 
-
-    render() {
+   
         return(
-            <div className="ui disabled icon input">
+            <div className="ui icon input">
             <i className="search icon"></i>
-            <input type="text" placeholder="Search..."/>
+            <input type="text" placeholder="Search..." onChange={props.handleSearch}/>
           </div>
         )
         
 
-    }
+    
 }
 export default Search;

@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ToolCard(props){
-    console.log("props from tool cards", props.toolCard.image)
        return (
             <div className="ui card">
             <div className="image">
