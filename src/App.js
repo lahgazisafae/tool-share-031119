@@ -2,8 +2,12 @@ import React from 'react';
 import ToolsContainer from './ToolsContainer'
 import Search from './Search';
 import Sidebar from './Sidebar';
+import AboutUs from './AboutUs';
+import Navbar from './Navbar';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
+import NewToolCard from './NewToolCard';
 
 class App extends React.Component{
 
@@ -54,6 +58,14 @@ class App extends React.Component{
     }
   }
 
+
+  handleNewTool(e){
+
+    //create new tool
+    //add to state!
+
+
+  }
   handleSave =(id)=>{
 
     console.log("Save Button Pressed!")
@@ -82,9 +94,22 @@ class App extends React.Component{
   render(){
   return (
     <div >
-      <Search /> 
-      <ToolsContainer tools={this.state.tools} handleSave={this.handleSave}/> 
-      <Sidebar /> 
+
+      <Navbar />
+      <Route exact path="/about_us" component={AboutUs}/>
+
+      <Route exact path="/" render={()=>{
+        return (
+          <div>
+            <Search /> 
+            <ToolsContainer tools={this.state.tools} handleSave={this.handleSave}/> 
+            <Sidebar /> 
+          </div>
+        ) 
+      }}/>
+      <Route exact path="home" component={ToolsContainer}/>
+      <Route exact path="/new_tool" render={()=><NewToolCard handleNewTool={this.handleNewTool}/>}/>
+      
 
     </div>
   );
