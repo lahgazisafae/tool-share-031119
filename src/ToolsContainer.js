@@ -1,12 +1,20 @@
 import React from 'react';
 import ToolCard from './ToolCard'
 
-function ToolsContainer(props){
+class ToolsContainer extends React.Component{
    
+
+    componentDidUpdate(){
+
+        console.log("Tool Container updated? ")
+    }
+
+    render(){
     return(
-        props.tools.map(tool=> <ToolCard toolCard={tool} handleSave={props.handleSave} />)
+        this.props.tools.map(tool=> <ToolCard toolCard={tool} handleSave={this.props.handleSave} />)
 
     );
+    }
 
 
 }

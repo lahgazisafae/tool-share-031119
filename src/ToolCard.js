@@ -1,24 +1,38 @@
 import React from 'react';
 
-function ToolCard(props){
+class ToolCard extends React.Component{
+
+
+    componentDidUpdate(){
+
+        console.log("Tool Card updated!")
+    }
+
+    componentWillUnmount(){
+        console.log("Tool Unounted!")
+    }
+    
+    render(){
+
        return (
             <div className="ui card">
             <div className="image">
-                <img src={props.toolCard.image}/>
+                <img src={this.props.toolCard.image}/>
             </div>
             <div className="content">
-                <a className="header">{props.toolCard.tool}</a>
+                <a className="header">{this.props.toolCard.tool}</a>
                 <div className="meta">
             </div>
                 <div className="description">
-                {props.toolCard.description}
+                {this.props.toolCard.description}
                 </div>
             </div>
             <div className="extra content">
-               <button onClick={()=>props.handleSave(props.toolCard.id)}>{props.toolCard.saved ?  "Unsave": "Save" } </button>
+               <button onClick={()=>this.props.handleSave(this.props.toolCard.id)}>{this.props.toolCard.saved ?  "Unsave": "Save" } </button>
             </div>
         </div>
         )
+       }
     }
 
 
