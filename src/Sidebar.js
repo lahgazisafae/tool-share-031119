@@ -6,7 +6,7 @@ class Sidebar extends React.Component{
 
     render() {
         return(
-            <div className="ui right sidebar inverted vertical menu">
+            <div className="ui right sidebar visible">
                 <SavedToolsContainer /> 
         
             </div>

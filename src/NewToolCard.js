@@ -5,7 +5,7 @@ class NewToolCard extends React.Component{
 
     render(){
         return(
-    <div>
+    <div class="ui card">
         <form class="ui form" onSubmit ={this.props.handleNewTool}>
         <div class="field">
             <label>Tool Name</label>
